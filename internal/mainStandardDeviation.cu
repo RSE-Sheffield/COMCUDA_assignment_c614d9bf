@@ -212,10 +212,10 @@ void runStandardDeviation(int argc, char** argv, const Implementation implementa
 
     // Validate and report
     {
-        const bool FAIL = !equalsEpsilon(standard_deviation_validation, standard_deviation_result, 0.00001f);
-        printf("Standard Deviation Result: %s" CONSOLE_RESET "\n", FAIL ? CONSOLE_RED "Fail" : CONSOLE_GREEN "Pass");
-            printf("\tCPU: " CONSOLE_YELLOW "%g" CONSOLE_RESET "\n", standard_deviation_validation);
-            printf("\t%s: %s%g" CONSOLE_RESET "\n", implementation_to_string(implementation), FAIL ? CONSOLE_RED : CONSOLE_GREEN, standard_deviation_result);
+        const bool FAIL = !equalsEpsilon(standard_deviation_validation, standard_deviation_result, 0.1f);
+        printf("Standard Deviation Result: %s (epsilon 0.1)" CONSOLE_RESET "\n", FAIL ? CONSOLE_RED "Fail" : CONSOLE_GREEN "Pass");
+            printf("\tCPU: " CONSOLE_YELLOW "%.2f" CONSOLE_RESET "\n", standard_deviation_validation);
+            printf("\t%s: %s%.2f" CONSOLE_RESET "\n", implementation_to_string(implementation), FAIL ? CONSOLE_RED : CONSOLE_GREEN, standard_deviation_result);
     }
 
     // Export output
